@@ -1,13 +1,20 @@
-# hello-world
+# Vue Intranet
 
-## Project setup
+Base projet pour un mini-intranet de type "annuaire" avec Vue.js
+
+## Setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+## Lancement du serveur d'API
 ```
-npm run serve
+npm run server
+```
+
+## Lancement du client
+```
+npm run clien
 ```
 
 ### Compiles and minifies for production
