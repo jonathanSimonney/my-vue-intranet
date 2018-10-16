@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import axios from "axios";
+    import UserService from "../services/UserService";
 
     export default {
         name: "User",
@@ -50,12 +50,8 @@
 
         methods: {
             suppressUser: async function(){
-                try {
-                    await axios.delete(` http://localhost:9000/collaborateur/${this.id}`);
-                    this.$emit('userSuppressed', this.id)
-                } catch (e) {
-                    console.error(e)
-                }
+                await UserService.removeOne(this.id);
+                this.$emit('userSuppressed', this.id)
             }
         }
         // data: () => (

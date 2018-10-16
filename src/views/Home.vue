@@ -18,6 +18,7 @@
 <script>
     import axios from 'axios';
     import User from "../components/User";
+    import UserService from "../services/UserService";
     export default {
         name: "Home",
         components: {User},
@@ -30,13 +31,9 @@
         async created() {
             // async / await version (created() becomes async created())
             //
-            try {
-                const response = await axios.get(` http://localhost:9000/collaborateurs`)
-                this.userList = response.data;
-                this.setRandomUser()
-            } catch (e) {
-                console.error(e)
-            }
+            const response = await UserService.fetchAll();
+            this.userList = response.data;
+            this.setRandomUser()
         },
         methods: {
             setRandomUser: function(){

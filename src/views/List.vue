@@ -13,9 +13,9 @@
 </template>
 
 <script>
-    import axios from 'axios';
     import User from "../components/User";
     import SearchForm from "../components/SearchForm";
+    import UserService from "../services/UserService";
     export default {
         name: "List",
         components: {SearchForm, User},
@@ -50,12 +50,8 @@
         async created() {
             // async / await version (created() becomes async created())
             //
-            try {
-                const response = await axios.get(` http://localhost:9000/collaborateurs`);
-                this.userList = response.data;
-            } catch (e) {
-                console.error(e)
-            }
+            const response = await UserService.fetchAll();
+            this.userList = response.data;
         },
     }
 </script>
