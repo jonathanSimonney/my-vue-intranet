@@ -3,7 +3,7 @@
         <div class='container' >
             <router-link to="/">Accueil</router-link>
             <router-link to="/list">Liste des collaborateurs</router-link>
-            <router-link to="/add">Ajouter un collaborateur</router-link>
+            <router-link to="/collaborator/add">Ajouter un collaborateur</router-link>
         </div>
     </nav>
 </template>
@@ -12,7 +12,6 @@
     export default {
         name: "navbar",
         props: {
-            activeTab: String
         }
     }
 </script>

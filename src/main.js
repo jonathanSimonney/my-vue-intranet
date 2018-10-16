@@ -3,12 +3,14 @@ import App from './App.vue'
 import VueRouter from "vue-router"
 import Home from './views/Home.vue'
 import List from "./views/List";
+import CollaboratorAdd from "./views/CollaboratorAdd";
 
 Vue.use(VueRouter);
 
 const routes = [
     { path: '/', component: Home },
-    { path: '/list', component: List }
+    { path: '/list', component: List },
+    { path: '/collaborator/add', component: CollaboratorAdd },
 ];
 
 // 3. Create the router instance and pass the `routes` option

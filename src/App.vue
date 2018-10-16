@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar activeTab="collaboratorList"></navbar>
+    <navbar></navbar>
     <img alt="Vue logo" src="./assets/logo.png">
       <router-view></router-view>
   </div>
