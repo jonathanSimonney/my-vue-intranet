@@ -5,7 +5,7 @@
         <hr>
         <h3>Avez-vous dit bonjour aujourd'hui à :</h3>
 
-        <user v-bind="user"></user>
+        <user v-bind="user" v-on:userSuppressed="suppressCurrentUser()"></user>
 
         <div class="actions">
             <a href="#" class="btn" v-on:click="setRandomUser()">
@@ -41,6 +41,10 @@
         methods: {
             setRandomUser: function(){
                 this.user = this.userList[Math.floor(Math.random()*this.userList.length)];
+            },
+            suppressCurrentUser: function(){
+                this.userList.splice(this.userList.indexOf(this.user), 1);
+                this.setRandomUser();
             }
         }
     }

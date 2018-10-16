@@ -6,7 +6,7 @@
 
         <div class="userList">
             <div v-for="user in filteredUserList" class="userContainer" :key="user.id">
-                <user v-bind="user"></user>
+                <user v-bind="user" v-on:userSuppressed="suppressUser(user)"></user>
             </div>
         </div>
     </div>
@@ -40,6 +40,9 @@
         methods: {
             changeSearchParams: function (newSearchParams) {
                 this.searchParams = newSearchParams
+            },
+            suppressUser(user) {
+                this.userList.splice(this.userList.indexOf(user), 1)
             }
         },
 

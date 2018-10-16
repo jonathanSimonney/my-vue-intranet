@@ -11,13 +11,15 @@
                 <i class="fa fa-calendar" /> {{birthdate}} ({{age}} ans)<br>
                 <i class="fa fa-map-marker" /> {{city}}, {{country}}
             </p>
-            <a href="#" class="btn btn-small">Supprimer</a>
+            <a href="#" class="btn btn-small" v-on:click="suppressUser()">Supprimer</a>
             <a href="#" class="btn btn-small">Modifier</a>
         </div>
     </article>
 </template>
 
 <script>
+    import axios from "axios";
+
     export default {
         name: "User",
         //components: {},
@@ -45,6 +47,17 @@
                 return age;
             }
         },
+
+        methods: {
+            suppressUser: async function(){
+                try {
+                    await axios.delete(` http://localhost:9000/collaborateur/${this.id}`);
+                    this.$emit('userSuppressed', this.id)
+                } catch (e) {
+                    console.error(e)
+                }
+            }
+        }
         // data: () => (
         //     {
         //
